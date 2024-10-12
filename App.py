@@ -8,6 +8,7 @@ import pickle
 
 # Load the trained model
 model = load_model('model.h5')
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 # Load label encoder (label.pkl)
 with open('label.pkl', 'rb') as file:
@@ -42,7 +43,6 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(image, caption='Uploaded Image', use_column_width=True)
     
-
     # Make prediction
     prediction = predict_image(uploaded_file)
     predicted_class = np.argmax(prediction)  # Get the predicted class index
