@@ -2,4 +2,3 @@ streamlit
 Pillow
 tensorflow
 numpy
-pickle5
